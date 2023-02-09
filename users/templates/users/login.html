@@ -1,0 +1,15 @@
+{% extends 'tweets/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if form %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset  class="form-group">Login</fieldset>
+        {{ form | crispy}}
+        <div class="row margin-10">
+            <button class="btn btn-dark" type="submit">Login</button>
+        </div>
+    </form>
+    <small class="text-muted">Forget your password? <a href="{% url 'user-reset-password'%}">Reset it now</a></small>
+{% endif %}
+{% endblock content %}

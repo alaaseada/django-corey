@@ -1,0 +1,19 @@
+{% extends 'tweets/base.html' %}
+
+{% block content %}
+{% if tweets %}
+{% for tweet in tweets %}
+<article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <i class="bi bi-twitter"></i> <a class="mr-2" href="#">{{ tweet.author.first_name }} {{tweet.author.last_name }}</a>
+        <small class="text-muted">{{ tweet.creation_date | date:'d-m-Y' }}, {{ tweet.creation_date | timesince }}</small>
+      </div>
+      <p class="article-content">"{{ tweet.content }}"</p>
+    </div>
+  </article>
+{% endfor %}
+{% else %}
+<p>No tweets has been published yet.</p>
+{% endif %}
+{% endblock content %}

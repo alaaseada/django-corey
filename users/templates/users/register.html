@@ -1,0 +1,15 @@
+{% extends 'tweets/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="POST" class='border-bottom'>
+    {% csrf_token %}
+    <fieldset  class="form-group">Create an account</fieldset>
+    {{form | crispy}}
+    <div class="row margin-10">
+        <button class="btn btn-dark" type="submit">Sign Up</button>
+    </div>
+</form>
+<small class="text-muted">Already have an account? <a href="{% url 'user-login'%}">Login</a></small>
+{% endblock content %}
+<form class="" method="POST">
